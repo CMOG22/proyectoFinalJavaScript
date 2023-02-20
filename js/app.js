@@ -65,3 +65,4 @@ function go(){
         alert("Usuario y/o contraeña invalidos")
     }
 }
+//Admin

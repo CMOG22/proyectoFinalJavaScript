@@ -1,0 +1,17 @@
+.contenedorAdmin {
+    width: 80%;
+    height: 50rem;
+    background-color: rgba(255,255,255,0.8);
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+th {
+    width: 12rem;
+    border: $border;
+    text-align: center;
+}
+.formularioFr2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1rem;
+}
