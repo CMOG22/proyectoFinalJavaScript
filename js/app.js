@@ -66,3 +66,58 @@ function go(){
     }
 }
 //Admin
+    //almacenar datos
+const datos = JSON.parse(localStorage.getItem('datos')) || [];
+
+const formulario = document.querySelector('#formulario');
+formulario.addEventListener('submit', (e) => {
+    e.preventDefault();//prevenir la carga de la pagina
+
+    const nombre = document.querySelector('#nombre').value;
+    const email = document.querySelector('#email').value;
+    const telefono = document.querySelector('#telefono').value;
+    const sexo = document.querySelector('#sexo').value;
+    const especialidad = document.querySelector('#especialidad').value;
+    const fCita = document.querySelector('#fCita').value;
+    const observaciones = document.querySelector('#observaciones').value;
+
+    //Agregar datos al Array
+    datos.push({nombre: nombre, email: email, telefono: telefono, sexo: sexo, especialidad: especialidad, fCita: fCita, observaciones: observaciones});
+
+    //Guardar los datos en localstorage
+    localStorage.setItem('datos',JSON.stringify(datos));
+
+    //limpiar campos del formulario
+    document.querySelector('#nombre').value = '';
+    document.querySelector('#email').value = '';
+    document.querySelector('#telefono').value = '';
+    document.querySelector('#sexo').value = '';
+    document.querySelector('#especialidad').value = '';
+    document.querySelector('#fCita').value = '';
+    document.querySelector('#observaciones').value = '';
+
+    actualizarTabla();
+});
+
+function actualizarTabla() {
+    const tabla = document.querySelector('#tabla-datos');
+    tabla.innerHTML = ''; //Limpia la tabla antes de agregar los nuevos datos
+
+    datos.forEach((dato, indice) => {
+        const fila = document.createElement('tr');
+        fila.innerHTML = `
+            <td>${dato.nombre}</td>
+            <td>${dato.email}</td>
+            <td>${dato.telefono}</td>
+            <td>${dato.sexo}</td>
+            <td>${dato.especialidad}</td>
+            <td>${dato.fCita}</td>
+            <td>${dato.observaciones}</td>
+            <td>
+                <button onclick="eliminar(${indice})">Eliminar</button>
+                <button onclick="editar(${indice})">Editar</button>
+            </td>
+        `;
+        tabla.appendChild(fila);
+    });
+}
