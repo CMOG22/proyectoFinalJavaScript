@@ -1,0 +1,16 @@
+$border: 1px solid red;
+$blue: #4DB2EC;
+$dk_blue: #2E56FF;
+$dr_blue: #88CDFB;
+$negro: #222222;
+$gris_tr: rgba(255,255,255);
+
+body {
+    background: {
+        image: url(../img/Medical-Wallpapers-HD.jpg);
+        size: cover;
+        repeat: no-repeat;
+        position: center;
+        attachment: fixed;
+    }
+}
