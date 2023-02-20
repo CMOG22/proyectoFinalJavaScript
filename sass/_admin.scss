@@ -4,14 +4,35 @@
     background-color: rgba(255,255,255,0.8);
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
+    padding: 1rem;
 }
 th {
     width: 12rem;
-    border: $border;
+    border: 1px solid $dk_blue;
     text-align: center;
 }
 .formularioFr2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     row-gap: 1rem;
+}
+td {
+    font-size: 12px;
+    padding: 1rem 0.5rem;
+    border: 1px solid $dk_blue;
+    button {
+        border-radius: 2rem;
+        background-color: $blue;
+        border: none;
+        color: white;
+        width: 5rem;
+        padding: 0.3rem;
+    }
+}
+td:first-child {
+    font-weight: bold;
+}
+td:last-child {
+    display: flex;
+    justify-content:space-evenly;
 }

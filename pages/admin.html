@@ -65,98 +65,69 @@
             </section>
         </header>
         <main class="contenedorAdmin">
-            <div class="accordion accordion-flush" id="accordionFlushExample">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingOne">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                            Alta de Citas
-                        </button>
-                    </h2>
-                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">
-                            <form action="" id="formulario">
-                                <div class="formularioFr2">
-                                    <section>
-                                        <label for="">Nombre:</label><br>
-                                        <input type="text" id="nombre" name="nombre">
-                                    </section>
-                                    <section>
-                                        <label for="">Correo electronico:</label><br>
-                                        <input type="email" id="email" name="email">
-                                    </section>
-                                    <section>
-                                        <label for="">Teléfono:</label><br>
-                                        <input type="text" id="telefono" name="telefono">
-                                    </section>
-                                    <section>
-                                        <label for="">Genero:</label><br>
-                                        <select name="" id="sexo">
-                                            <option value="Femenino">Femenino</option>
-                                            <option value="Masculino">Masculino</option>
-                                        </select>
-                                    </section>
-                                    <section>
-                                        <label for="">Especialidad:</label><br>
-                                        <select name="" id="especialidad">
-                                            <option value="General">General</option>
-                                            <option value="Psicologo">Psicologo</option>
-                                            <option value="Pediatra">Pediatra</option>
-                                            <option value="Gediatra">Gediatra</option>
-                                        </select>
-                                    </section>
-                                    <section>
-                                        <label for="">Fecha de cita:</label><br>
-                                        <input type="date" id="fCita" placeholder="(dd/mm/yyyy)">
-                                    </section>
-                                    <section>
-                                        <label for="">Observaciones:</label><br>
-                                        <input type="text" id="observaciones" name="observaciones">
-                                    </section>
-                                    <section>
-                                        <button type="submit">Crear cita</button>
-                                    </section>
-                                </div>
-                            </form>
-                        </div>
+            <div>
+                <form action="" id="formulario">
+                    <div class="formularioFr2">
+                        <section>
+                            <label for="">Nombre:</label><br>
+                            <input type="text" id="nombre" name="nombre">
+                        </section>
+                        <section>
+                            <label for="">Correo electronico:</label><br>
+                            <input type="email" id="email" name="email">
+                        </section>
+                        <section>
+                            <label for="">Teléfono:</label><br>
+                            <input type="text" id="telefono" name="telefono">
+                        </section>
+                        <section>
+                            <label for="">Genero:</label><br>
+                            <select name="" id="sexo">
+                                <option value="Femenino">Femenino</option>
+                                <option value="Masculino">Masculino</option>
+                            </select>
+                        </section>
+                        <section>
+                            <label for="">Especialidad:</label><br>
+                            <select name="" id="especialidad">
+                                <option value="General">General</option>
+                                <option value="Psicologo">Psicologo</option>
+                                <option value="Pediatra">Pediatra</option>
+                                <option value="Gediatra">Gediatra</option>
+                            </select>
+                        </section>
+                        <section>
+                            <label for="">Fecha de cita:</label><br>
+                            <input type="date" id="fCita" placeholder="(dd/mm/yyyy)" name="fCita">
+                        </section>
+                        <section>
+                            <label for="">Observaciones:</label><br>
+                            <input type="text" id="observaciones" name="observaciones">
+                        </section>
+                        <section>
+                            <button type="submit">Crear cita</button>
+                        </section>
                     </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                            Lista de citas
-                        </button>
-                    </h2>
-                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Nombre</th>
-                                        <th>Correo</th>
-                                        <th>Telefono</th>
-                                        <th>Genero</th>
-                                        <th>Especialidad</th>
-                                        <th>Fecha de cita</th>
-                                        <th>Observaciones</th>
-                                        <th>Acciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tabla-datos"></tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <!--div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                      Accordion Item #3
-                    </button>
-                  </h2>
-                  <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
-                  </div>
-                </div-->
-              </div>
+                </form>
+            </div>
+            <br>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Telefono</th>
+                            <th>Genero</th>
+                            <th>Especialidad</th>
+                            <th>Fecha de cita</th>
+                            <th>Observaciones</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-datos"></tbody>
+                </table>
+            </div>
         </main>
         <footer>
 
