@@ -5,6 +5,14 @@
     border-bottom-right-radius: 1rem;
     padding: 1rem;
 }
+.logOut {
+    margin: 0.5rem;
+}
+.campos {
+    display: flex;
+    justify-content: end;
+    color: red; 
+}
 th {
     width: 12rem;
     border: 1px solid $dk_blue;
@@ -61,4 +69,7 @@ td:first-child {
 td:last-child {
     display: flex;
     justify-content:space-evenly;
+}
+.fila-roja {
+    background-color: #FFCDD2;
 }

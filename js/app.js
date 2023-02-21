@@ -56,15 +56,25 @@ function nextPage() {
 getNews(page);
 
 //login
+
+// Función de inicio de sesión
 function go(){
     let login = "admin";
     let password = "admin";
-    if (document.form.password.value==password && document.form.login.value==login){
+    if (document.form.password.value == password && document.form.login.value == login){
         window.location="./pages/admin.html"
     } else {
-        alert("Usuario y/o contraeña invalidos")
+        Toastify({
+            text: "Usuario y/o contraseña inválidos",
+            duration: 3000,
+            close: true,
+            gravity: "bottom",
+            position: "center",
+            backgroundColor: "linear-gradient(to right, #ff416c, #ff4b2b)",
+        }).showToast();
     }
 }
+
 //Admin
     //almacenar datos
 const datos = JSON.parse(localStorage.getItem('datos')) || [];
@@ -81,6 +91,19 @@ formulario.addEventListener('submit', (e) => {
     const costo = document.querySelector('#costo').value;
     const fCita = document.querySelector('#fCita').value;
     const observaciones = document.querySelector('#observaciones').value;
+
+    if (nombre.trim() === '' || email.trim() === '' || telefono.trim() === '' || sexo.trim() === '' || especialidad.trim() === '' || costo.trim() === '' || fCita.trim() === '' ) {
+      Toastify({
+        text: "Completa los campos obligatorios",
+        duration: 3000,
+        close: true,
+        gravity: "bottom",
+        position: "center",
+        backgroundColor: "linear-gradient(to right, #ff416c, #ff4b2b)",
+    }).showToast();
+      return;
+  }
+
 
     //Agregar datos al Array
     datos.push({nombre: nombre, email: email, telefono: telefono, sexo: sexo, especialidad: especialidad, costo: costo, fCita: fCita, observaciones: observaciones});
@@ -104,6 +127,12 @@ formulario.addEventListener('submit', (e) => {
 function actualizarTabla() {
     const tabla = document.querySelector('#tabla-datos');
     tabla.innerHTML = ''; //Limpia la tabla antes de agregar los nuevos datos
+
+    //obtener la fecha actual
+    const fechaActual = new Date();
+    
+    //ordenar tabla
+    datos.sort((a, b) => new Date(a.fCita) - new Date(b.fCita));
     
     datos.forEach((dato, indice) => {
         const fila = document.createElement('tr');
@@ -121,6 +150,11 @@ function actualizarTabla() {
                 <button onclick="editar(${indice})">Editar</button>
             </td>
         `;
+        //comparar la fecha de la cita con la fecha actual
+        const fechaCita = new Date(dato.fCita);
+        if (fechaCita < fechaActual) {
+            fila.classList.add('fila-roja');
+        }
         tabla.appendChild(fila);
     });
 }
@@ -167,7 +201,7 @@ function editar(indice) {
         const costo = document.querySelector('#costo').value;
         const fCita = document.querySelector('#fCita').value;
         const observaciones = document.querySelector('#observaciones').value;
-        
+
         //agregar los nuevos datos al array
         datos.splice(indice, 0, {nombre: nombre, email: email, telefono: telefono, sexo: sexo, especialidad: especialidad, costo: costo, fCita: fCita, observaciones: observaciones});
 
