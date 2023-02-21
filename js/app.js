@@ -78,11 +78,12 @@ formulario.addEventListener('submit', (e) => {
     const telefono = document.querySelector('#telefono').value;
     const sexo = document.querySelector('#sexo').value;
     const especialidad = document.querySelector('#especialidad').value;
+    const costo = document.querySelector('#costo').value;
     const fCita = document.querySelector('#fCita').value;
     const observaciones = document.querySelector('#observaciones').value;
 
     //Agregar datos al Array
-    datos.push({nombre: nombre, email: email, telefono: telefono, sexo: sexo, especialidad: especialidad, fCita: fCita, observaciones: observaciones});
+    datos.push({nombre: nombre, email: email, telefono: telefono, sexo: sexo, especialidad: especialidad, costo: costo, fCita: fCita, observaciones: observaciones});
 
     //Guardar los datos en localstorage
     localStorage.setItem('datos',JSON.stringify(datos));
@@ -93,6 +94,7 @@ formulario.addEventListener('submit', (e) => {
     document.querySelector('#telefono').value = '';
     document.querySelector('#sexo').value = '';
     document.querySelector('#especialidad').value = '';
+    document.querySelector('#costo').value = '';
     document.querySelector('#fCita').value = '';
     document.querySelector('#observaciones').value = '';
 
@@ -102,15 +104,16 @@ formulario.addEventListener('submit', (e) => {
 function actualizarTabla() {
     const tabla = document.querySelector('#tabla-datos');
     tabla.innerHTML = ''; //Limpia la tabla antes de agregar los nuevos datos
-
+    
     datos.forEach((dato, indice) => {
         const fila = document.createElement('tr');
         fila.innerHTML = `
             <td>${dato.nombre}</td>
-            <td>${dato.email}</td>
-            <td>${dato.telefono}</td>
+            <td><a href="mailto:${dato.email}">${dato.email}</a></td>
+            <td><a href="tel:${dato.telefono}">${dato.telefono}</a></td>
             <td>${dato.sexo}</td>
             <td>${dato.especialidad}</td>
+            <td>${dato.costo}</td>
             <td>${dato.fCita}</td>
             <td>${dato.observaciones}</td>
             <td>
@@ -121,6 +124,7 @@ function actualizarTabla() {
         tabla.appendChild(fila);
     });
 }
+
 
 function eliminar(indice) {
     datos.splice(indice, 1); //elimina el dato del array
@@ -139,6 +143,7 @@ function editar(indice) {
     document.querySelector('#telefono').value = dato.telefono;
     document.querySelector('#sexo').value = dato.sexo;
     document.querySelector('#especialidad').value = dato.especialidad;
+    document.querySelector('#costo').value = dato.costo;
     document.querySelector('#fCita').value = dato.fCita;
     document.querySelector('#observaciones').value = dato.observaciones;
 
@@ -159,11 +164,12 @@ function editar(indice) {
         const telefono = document.querySelector('#telefono').value;
         const sexo = document.querySelector('#sexo').value;
         const especialidad = document.querySelector('#especialidad').value;
+        const costo = document.querySelector('#costo').value;
         const fCita = document.querySelector('#fCita').value;
         const observaciones = document.querySelector('#observaciones').value;
         
         //agregar los nuevos datos al array
-        datos.splice(indice, 0, {nombre: nombre, email: email, telefono: telefono, sexo: sexo, especialidad: especialidad, fCita: fCita, observaciones: observaciones});
+        datos.splice(indice, 0, {nombre: nombre, email: email, telefono: telefono, sexo: sexo, especialidad: especialidad, costo: costo, fCita: fCita, observaciones: observaciones});
 
         //limpiar los campos del formulario
         document.querySelector('#nombre').value = '';
@@ -171,6 +177,7 @@ function editar(indice) {
         document.querySelector('#telefono').value = '';
         document.querySelector('#sexo').value = '';
         document.querySelector('#especialidad').value = '';
+        document.querySelector('#costo').value = '';
         document.querySelector('#fCita').value = '';
         document.querySelector('#observaciones').value = '';
 
@@ -187,18 +194,26 @@ function editar(indice) {
     });
 }
 actualizarTabla();
-/*
-function validarFecha() {
-    //obtener fecha actual
-    var fechaActual = new Date();
 
-    //Obtener la fecha seleccionada por usuario
-    var fechaSeleccionada = new Date(document.getElementById('fCita').value);
+function llenarCosto () {
+  var especialidad = document.getElementById("especialidad").value;
+  var costo = document.getElementById("costo");
 
-    //comparar las fechas
-    if (fechaSeleccionada < fechaActual) {
-        alert('La fehca seleccionada no puede ser anterior a la actual.');
-        return false;
-    }
+  switch(especialidad) {
+    case "General":
+      costo.value = "1000";
+      break;
+    case "Gediatra":
+      costo.value = "1200";
+      break;
+    case "Pediatra":
+      costo.value = "1500";
+      break;
+    case "Psicologo":
+      costo.value = "800";
+      break;
+    default:
+      costo.value = "";
+      break;
+  }
 }
-*/

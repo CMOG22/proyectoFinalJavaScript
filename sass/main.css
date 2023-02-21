@@ -200,7 +200,6 @@ main .pagination button {
 
 .contenedorAdmin {
   width: 80%;
-  height: 50rem;
   background-color: rgba(255, 255, 255, 0.8);
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
@@ -215,22 +214,50 @@ th {
 
 .formularioFr2 {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   row-gap: 1rem;
+}
+.formularioFr2 h2 {
+  font-size: 2rem;
+}
+.formularioFr2 label {
+  font-size: 1.5rem;
+}
+.formularioFr2 input, .formularioFr2 select {
+  padding: 0.5rem;
+  border-radius: 1rem;
+  width: 15rem;
+}
+.formularioFr2 button {
+  width: 15rem;
+  border: 0;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  background-color: #2E56FF;
+  color: white;
+  font-weight: bold;
+}
+
+th {
+  background-color: #4DB2EC;
 }
 
 td {
   font-size: 12px;
   padding: 1rem 0.5rem;
   border: 1px solid #2E56FF;
+  height: 5rem;
 }
 td button {
   border-radius: 2rem;
   background-color: #4DB2EC;
   border: none;
   color: white;
-  width: 5rem;
+  width: 4rem;
+  height: 2rem;
   padding: 0.3rem;
+  margin: auto;
+  font-weight: bold;
 }
 
 td:first-child {

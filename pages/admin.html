@@ -66,6 +66,7 @@
         </header>
         <main class="contenedorAdmin">
             <div>
+                <h2>Crear cita</h2>
                 <form action="" id="formulario">
                     <div class="formularioFr2">
                         <section>
@@ -89,12 +90,16 @@
                         </section>
                         <section>
                             <label for="">Especialidad:</label><br>
-                            <select name="" id="especialidad">
+                            <select name="" id="especialidad" onchange="llenarCosto()">
                                 <option value="General">General</option>
-                                <option value="Psicologo">Psicologo</option>
-                                <option value="Pediatra">Pediatra</option>
                                 <option value="Gediatra">Gediatra</option>
+                                <option value="Pediatra">Pediatra</option>
+                                <option value="Psicologo">Psicologo</option>
                             </select>
+                        </section>
+                        <section>
+                            <label for="">Costo:</label><br>
+                            <input type="text" id="costo" readonly>
                         </section>
                         <section>
                             <label for="">Fecha de cita:</label><br>
@@ -105,6 +110,7 @@
                             <input type="text" id="observaciones" name="observaciones">
                         </section>
                         <section>
+                            <br>
                             <button type="submit">Crear cita</button>
                         </section>
                     </div>
@@ -112,6 +118,7 @@
             </div>
             <br>
             <div>
+                <h2>Citas</h2>
                 <table>
                     <thead>
                         <tr>
@@ -120,6 +127,7 @@
                             <th>Telefono</th>
                             <th>Genero</th>
                             <th>Especialidad</th>
+                            <th>Costo</th>
                             <th>Fecha de cita</th>
                             <th>Observaciones</th>
                             <th>Acciones</th>
