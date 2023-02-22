@@ -291,4 +291,13 @@ td:last-child {
 
 .fila-roja {
   background-color: #FFCDD2;
+}
+
+.citas {
+  display: flex;
+  justify-content: space-between;
+}
+
+.citasIcon {
+  background-color: #FFCDD2;
 }/*# sourceMappingURL=main.css.map */
