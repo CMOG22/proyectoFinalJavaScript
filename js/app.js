@@ -55,8 +55,6 @@ function nextPage() {
 }
 getNews(page);
 
-//login
-
 // Función de inicio de sesión
 function go(){
     let login = "admin";
