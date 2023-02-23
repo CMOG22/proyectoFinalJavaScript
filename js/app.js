@@ -136,6 +136,7 @@ function actualizarTabla() {
     //ordenar tabla
     datos.sort((a, b) => new Date(a.fCita) - new Date(b.fCita));
     
+    
     datos.forEach((dato, indice) => {
         const fila = document.createElement('tr');
         fila.innerHTML = `
@@ -293,4 +294,36 @@ function descuentoTotal () {
       total.value = "";
       break;
   }
+}
+
+
+function buscar() {
+  const input = document.getElementById("buscar");
+  const filter = input.value.toUpperCase();
+  const table = document.getElementById("tabla-datos");
+  const tr = table.getElementsByTagName("tr");
+
+  for (let i = 0; i < tr.length; i++) {
+    const td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      const txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+
+function buscarPorEmail(email) {
+  const citas = JSON.parse(localStorage.getItem('datos')) || [];
+
+  for (const cita of citas) {
+    if (cita.email === email) {
+      return cita;
+    }
+  }
+
+  return null; // si no se encontró ninguna cita con ese email
 }
